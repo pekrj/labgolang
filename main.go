@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	h := handlers.Handler{}
+	h := &handlers.Handler{}
 	e := echo.New()
 
-	e.GET("/courses", h.GetCourse)
+	e.GET("/courses", h.GetCourses)
 	e.Logger.Fatal(e.Start(":1323"))
 }
