@@ -1,4 +1,4 @@
-module lab
+module github.com/pekrj/labgolang
 
 go 1.14
 

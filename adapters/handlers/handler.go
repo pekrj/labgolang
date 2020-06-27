@@ -6,8 +6,8 @@ import (
 	"github.com/labstack/echo"
 )
 
-type handler struct{}
+type Handler struct{}
 
-func (h *handler) getCourses(c echo.Context) error {
+func (h *Handler) GetCourses(c echo.Context) error {
 	return c.JSON(http.StatusOK, "")
 }
