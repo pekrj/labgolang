@@ -1,9 +1,12 @@
 package handlers
 
 import (
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/pekrj/labgolang/domain"
 
 	"github.com/labstack/echo"
 	"github.com/stretchr/testify/assert"
@@ -14,11 +17,13 @@ func TestGetCourses(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/courses", nil)
 	response := httptest.NewRecorder()
 	c := e.NewContext(req, response)
-	h := &handler{}
+	h := &Handler{}
 
-	if assert.NoError(t, h.getCourses(c)) {
+	if assert.NoError(t, h.GetCourses(c)) {
 		assert.Equal(t, http.StatusOK, response.Code)
-		// assert.Equal(t, userJSON, rec.Body.String())
+		var courses []domain.Course
+		json.Unmarshal([]byte(response.Body.String()), &courses)
+		assert.Equal(t, Courses, courses)
 	}
 
 }
