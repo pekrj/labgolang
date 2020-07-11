@@ -12,7 +12,7 @@ var JsonEncodingError = errors.New("json enconding error")
 var IoReadError = errors.New("io read error")
 var ClientRequestError = errors.New("client request error")
 
-const url = "https://swapi.dev/api/"
+const url = "https://swapi.dev/api"
 
 type PlanetsTO struct {
 	Name    string `json:"name"`
@@ -28,7 +28,7 @@ type resultTO struct {
 }
 
 func GetPlanets() ([]domain.Planet, error) {
-	resp, err := http.Get(url + "planets")
+	resp, err := http.Get(url + "/planets")
 	if err != nil {
 		return nil, ClientRequestError
 	}
