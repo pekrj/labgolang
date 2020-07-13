@@ -18,7 +18,7 @@ func TestGetPlanets(t *testing.T) {
 func TestGetPlanetsWithGocks(t *testing.T) {
 	defer gock.Off()
 
-	dat, err := ioutil.ReadFile("/home/leandro.amaral/projetos/golang/lab/adapters/filesmocks/planetmock.json")
+	dat, err := ioutil.ReadFile("../filesmocks/planetmock.json")
 	assert.NoError(t, err)
 	fmt.Print(string(dat))
 
