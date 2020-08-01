@@ -1,8 +1,8 @@
 package domain
 
 type Course struct {
-	Id        string
-	Nome      string
-	Descricao string
-	Preco     int
+	Id        string `bson:"id"`
+	Nome      string `bson:"nome"`
+	Descricao string `bson:"descricao"`
+	Preco     int    `bson:"preco"`
 }

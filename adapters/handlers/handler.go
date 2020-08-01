@@ -3,6 +3,8 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/labstack/gommon/log"
+
 	"github.com/labstack/echo"
 	"github.com/pekrj/labgolang/domain/services"
 )
@@ -18,5 +20,7 @@ func (h *Handler) GetCourses(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+
+	log.Info("Passei No handler e chamei o Get Courses")
 	return c.JSON(http.StatusOK, courses)
 }

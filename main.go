@@ -3,14 +3,14 @@ package main
 import (
 	"github.com/labstack/echo"
 	"github.com/pekrj/labgolang/adapters/handlers"
-	"github.com/pekrj/labgolang/adapters/inmemorycourseRepository"
+	"github.com/pekrj/labgolang/adapters/mongo"
 	"github.com/pekrj/labgolang/domain/services"
 )
 
 func main() {
 	h := &handlers.Handler{
 		CourseService: services.CourseService{
-			CourseRepository: &inmemorycourseRepository.InMemoryCourseRepository{},
+			CourseRepository: &mongo.MongoCourseRepository{},
 		},
 	}
 	e := echo.New()
